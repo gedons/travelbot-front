@@ -127,7 +127,7 @@ export default {
         this.scrollToBottom(); 
 
         setTimeout(async () => {
-          const response = await axios.post('http://localhost:5000/chat', {
+          const response = await axios.post('https://travelbot-api.onrender.com/chat', {
             message: userMessage
           });
           const botResponse = response.data.response;
