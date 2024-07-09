@@ -19,7 +19,7 @@
           </div>
           <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
             <div class="flex-shrink-0">
-              <h1 class="text-gray-900 text-lg font-semibold mt-1">Tavel Agency Bot</h1>
+              <h1 class="text-gray-900 text-lg font-semibold mt-1">TavelPal</h1>
             </div>
             <div class="hidden sm:block sm:ml-6">
               <div class="flex">
@@ -48,17 +48,18 @@
     </nav>
 
     <!-- Welcome Card -->
-    <div class="max-w-xl mx-auto mt-6 p-6 bg-white rounded-lg shadow-md text-center">
+    <!-- <div class="max-w-xl mx-auto mt-6 p-6 bg-white rounded-lg shadow-md text-center">
       <p> Welcome to our travel agency chat bot! We offer trips to the following destinations
         <br><span class="font-semibold">Paris, New York, Tokyo, Sydney, Rome</span> 
         <br>  Which destination are you interested in?
       </p>
-    </div>
+    </div> -->
 
     <!-- Chat Container -->
     <div class="chat-container mt-8 max-w-3xl mx-auto p-4" ref="messageContainer">
       <!-- Chat messages display -->
       <div class="chat-messages">
+        <p>Hello! Welcome to TravelPal, your personal travel assistant. How can I assist you today?</p>
         <div v-for="message in messages" :key="message.id" :class="messageClass(message)">
           <p v-html="formatMessage(message.text)"></p>
           <!-- Add payment button if message contains payment link -->
@@ -70,7 +71,7 @@
         </div>
         <!-- Typing indicator -->
         <div v-if="isTyping" class="message-bot">
-          <p>Bot is typing...</p>
+          <p>TravelPal is typing...</p>
         </div>
         <!-- Lottie animation display -->
         <div v-if="showLottieAnimation" class="fullscreen-container">
@@ -132,7 +133,7 @@ export default {
           });
           const botResponse = response.data.response;
           const paymentUrl = response.data.payment_link; 
-          this.messages.push({ id: this.messages.length + 2, text: 'Bot: ' + botResponse, paymentUrl });
+          this.messages.push({ id: this.messages.length + 2, text: 'TravelPal: ' + botResponse, paymentUrl });
           this.playNotificationSound();
           this.isTyping = false;  
           this.hasMessageSent = true;
